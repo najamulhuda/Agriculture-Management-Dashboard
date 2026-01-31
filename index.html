@@ -16,12 +16,10 @@
 </head>
 <body>
 
-<!-- Sidebar Backdrop (mobile) -->
+<!-- Sidebar (made it seperately for mobile) -->
 <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
 
-<!-- ══════════════════════════════════════════════
-     SIDEBAR
-     ══════════════════════════════════════════════ -->
+<!-- SIDEBAR -->
 <div class="sidebar" id="sidebar">
     <div class="sidebar-header d-flex align-items-center justify-content-between p-3">
         <h3 class="mb-0 fs-6 text-white">Agriculture<br>Management</h3>
@@ -72,12 +70,10 @@
     </ul>
 </div>
 
-<!-- ══════════════════════════════════════════════
-     MAIN CONTENT
-     ══════════════════════════════════════════════ -->
+<!-- main content area -->
 <div class="main-content" id="mainContent">
 
-    <!-- Top Navbar -->
+    <!-- top navbar -->
     <nav class="navbar navbar-light bg-white shadow-sm" style="padding:0.5rem 1rem;">
         <div class="container-fluid d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center">
@@ -103,7 +99,7 @@
                         <li><a class="dropdown-item" href="#">Irrigation system alert</a></li>
                     </ul>
                 </div>
-                <!-- Logout -->
+                <!-- Logout button -->
                 <button class="btn btn-outline-success btn-sm" id="logoutBtn">
                     <i class="fas fa-sign-out-alt me-1"></i>
                     <span class="logout-btn-text">Logout</span>
@@ -115,10 +111,10 @@
     <!-- Page Content -->
     <div class="container-fluid p-4" id="pageContent">
 
-        <!-- ════════════ DASHBOARD ════════════ -->
+        <!-- DASHBOARD -->
         <div id="dashboardPage" class="page-content">
 
-            <!-- Stat Cards: col-6 on xs → col-md-3 on md+ -->
+            <!-- Stat Cards with responsive design -->
             <div class="row mb-4">
                 <div class="col-6 col-md-3 mb-3">
                     <div class="card stat-card bg-primary text-white h-100 shadow-sm">
@@ -166,7 +162,7 @@
                 </div>
             </div>
 
-            <!-- Charts Row 1: Bar + Pie -->
+            <!-- bar chart and pie chart row -->
             <div class="row mb-4">
                 <div class="col-lg-8 col-12 mb-4 mb-lg-0">
                     <div class="card shadow-sm h-100">
@@ -190,7 +186,7 @@
                 </div>
             </div>
 
-            <!-- Charts Row 2: Line -->
+            <!-- line chart row -->
             <div class="row">
                 <div class="col-12">
                     <div class="card shadow-sm">
@@ -203,9 +199,10 @@
                     </div>
                 </div>
             </div>
-        </div><!-- end dashboardPage -->
+        </div>
+        <!-- end dashboardPage -->
 
-        <!-- ════════════ CROPS ════════════ -->
+        <!-- CROPS SECTION-->
         <div id="cropsPage" class="page-content d-none">
             <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
                 <h4 class="mb-0">Crop Management</h4>
@@ -214,7 +211,7 @@
                 </button>
             </div>
 
-            <!-- Search + Filter -->
+            <!-- Search and Filter -->
             <div class="row mb-4">
                 <div class="col-md-8 mb-3 mb-md-0">
                     <div class="input-group">
@@ -256,9 +253,9 @@
                     </div>
                 </div>
             </div>
-        </div><!-- end cropsPage -->
+        </div>
 
-        <!-- ════════════ FARMERS ════════════ -->
+        <!-- FARMERS SECTION -->
         <div id="farmersPage" class="page-content d-none">
             <h4>Farmers Management</h4>
             <p class="text-muted">Farmer management functionalit</p>
@@ -292,9 +289,9 @@
                     </div>
                 </div>
             </div>
-        </div><!-- end farmersPage -->
+        </div>
 
-        <!-- ════════════ REPORTS ════════════ -->
+        <!-- REPORTS SECTION -->
         <div id="reportsPage" class="page-content d-none">
             <h4>Reports &amp; Analytics</h4>
             <p class="text-muted">Detailed reports and analytics</p>
@@ -336,9 +333,9 @@
                     </div>
                 </div>
             </div>
-        </div><!-- end reportsPage -->
+        </div>
 
-        <!-- ════════════ SETTINGS ════════════ -->
+        <!-- SETTINGS SECTION -->
         <div id="settingsPage" class="page-content d-none">
             <h4>System Settings</h4>
             <p class="text-muted">Application settings and configuration options.</p>
@@ -381,15 +378,13 @@
                     </div>
                 </div>
             </div>
-        </div><!-- end settingsPage -->
+        </div>
 
-    </div><!-- end container-fluid -->
-</div><!-- end main-content -->
+    </div>
+</div>
 
 
-<!-- ══════════════════════════════════════════════
-     CROP MODAL  (Bootstrap 5 Modal)
-     ══════════════════════════════════════════════ -->
+<!-- CROP MODAL using Bootstrap 5-->
 <div class="modal fade" id="cropModal" tabindex="-1" aria-labelledby="cropModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
@@ -458,9 +453,7 @@
     </div>
 </div>
 
-<!-- ══════════════════════════════════════════════
-     DELETE MODAL  (Bootstrap 5 Modal)
-     ══════════════════════════════════════════════ -->
+<!-- DELETE MODAL functionality using bootstrap 5 -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -482,9 +475,7 @@
 <!-- Bootstrap 5 JS Bundle -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- ══════════════════════════════════════════════
-     APPLICATION JS
-     ══════════════════════════════════════════════ -->
+<!-- JS file connection tag -->
 <script src="script.js">
 
 </script>

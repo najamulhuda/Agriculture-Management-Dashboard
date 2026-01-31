@@ -6,16 +6,14 @@
             --green-mid:  #4caf50;
         }
 
-        /* ─── Body ─── */
+        /* Body */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f0f2f5;
             overflow-x: hidden;
         }
 
-        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-           SIDEBAR
-           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* SIDEBAR */
         .sidebar {
             width: var(--sidebar-width);
             min-height: 100vh;
@@ -71,7 +69,7 @@
         .sidebar.collapsed .nav-link { justify-content: center !important; }
         .sidebar.collapsed .nav-link i { margin-right: 0 !important; }
 
-        /* ─── sidebar backdrop (mobile) ─── */
+        /* sidebar backdrop (only for mobile) */
         .sidebar-backdrop {
             display: none;
             position: fixed;
@@ -81,9 +79,7 @@
         }
         .sidebar-backdrop.show { display: block; }
 
-        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-           MAIN CONTENT WRAPPER
-           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* MAIN CONTENT WRAPPER */
         .main-content {
             margin-left: var(--sidebar-width);
             transition: margin-left 0.3s ease;

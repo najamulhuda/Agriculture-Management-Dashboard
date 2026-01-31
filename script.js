@@ -1,4 +1,4 @@
-// ─── Data ────────────────────────────────────────
+// Data ────────────────────────────────────────
 let cropsData = [
     { id:1, name:"Wheat Field A",   type:"Wheat",      plantingDate:"2025-10-15", harvestDate:"2026-03-20", area:50, status:"growing",   yield:25.5 },
     { id:2, name:"Rice Paddy B",    type:"Rice",       plantingDate:"2025-11-01", harvestDate:"2026-04-10", area:30, status:"growing",   yield:18.2 },
@@ -11,7 +11,7 @@ let cropsData = [
 let currentCropId = null;
 let currentPage   = 'dashboard';
 
-// ─── DOM ─────────────────────────────────────────
+// ─── DOM Selection ───
 const sidebar          = document.getElementById('sidebar');
 const sidebarBackdrop  = document.getElementById('sidebarBackdrop');
 const mainContent      = document.getElementById('mainContent');
@@ -34,7 +34,7 @@ const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
 const cropModal   = new bootstrap.Modal(document.getElementById('cropModal'));
 const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
 
-// ─── Init ────────────────────────────────────────
+// Init ────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', function(){
     initCharts();
     loadCropsTable();
@@ -42,9 +42,7 @@ document.addEventListener('DOMContentLoaded', function(){
     setupEventListeners();
 });
 
-/* ═══════════════════════════════════════════
-   CHARTS
-   ═══════════════════════════════════════════ */
+/* CHARTS */
 function initCharts(){
     const labels = ['Wheat','Rice','Corn','Soybean','Vegetables','Fruits'];
     const bg = [
@@ -80,9 +78,7 @@ function initCharts(){
     });
 }
 
-/* ═══════════════════════════════════════════
-   CROPS TABLE
-   ═══════════════════════════════════════════ */
+/* CROPS TABLE */
 function loadCropsTable(filteredData){
     var data = filteredData || cropsData;
     cropsTableBody.innerHTML = '';
@@ -128,9 +124,7 @@ function loadCropsTable(filteredData){
     });
 }
 
-/* ═══════════════════════════════════════════
-   STATISTICS
-   ═══════════════════════════════════════════ */
+/* STATISTICS */
 function updateStatistics(){
     document.getElementById('totalCrops').textContent   = cropsData.length;
     document.getElementById('totalFarms').textContent   = '8';
@@ -139,9 +133,7 @@ function updateStatistics(){
     document.getElementById('totalYield').textContent   = total.toFixed(1);
 }
 
-/* ═══════════════════════════════════════════
-   EVENT LISTENERS
-   ═══════════════════════════════════════════ */
+/* EVENT LISTENERS */
 function setupEventListeners(){
     // Desktop sidebar toggle
     toggleSidebarBtn.addEventListener('click', function(){
@@ -202,9 +194,7 @@ function closeMobileSidebar(){
     sidebarBackdrop.classList.remove('show');
 }
 
-/* ═══════════════════════════════════════════
-   FILTER
-   ═══════════════════════════════════════════ */
+/* FILTER */
 function filterCrops(){
     var term   = searchCrop.value.toLowerCase();
     var status = cropStatusFilter.value;
@@ -216,9 +206,7 @@ function filterCrops(){
     loadCropsTable(filtered);
 }
 
-/* ═══════════════════════════════════════════
-   CROP MODAL  (Add / Edit)
-   ═══════════════════════════════════════════ */
+/* CROP MODAL  (Add / Edit) */
 function showCropModal(crop){
     cropForm.reset();
     cropForm.querySelectorAll('input, select').forEach(function(el){ el.classList.remove('is-invalid'); });
@@ -246,9 +234,7 @@ function editCrop(id){
     if(crop) showCropModal(crop);
 }
 
-/* ═══════════════════════════════════════════
-   SAVE CROP
-   ═══════════════════════════════════════════ */
+/* SAVE CROP */
 function saveCrop(){
     if(!cropForm.checkValidity()){
         cropForm.querySelectorAll('input, select').forEach(function(input){
@@ -283,9 +269,7 @@ function saveCrop(){
     alert('Crop ' + (currentCropId ? 'updated' : 'added') + ' successfully!');
 }
 
-/* ═══════════════════════════════════════════
-   DELETE CROP
-   ═══════════════════════════════════════════ */
+/* DELETE CROP */
 function showDeleteModal(id){
     currentCropId = id;
     deleteModal.show();
@@ -299,9 +283,7 @@ function deleteCrop(){
     alert('Crop deleted successfully!');
 }
 
-/* ═══════════════════════════════════════════
-   HELPERS
-   ═══════════════════════════════════════════ */
+/*HELPERS */
 function formatDate(dateString){
     if(!dateString) return 'N/A';
     var date = new Date(dateString + 'T00:00:00');
