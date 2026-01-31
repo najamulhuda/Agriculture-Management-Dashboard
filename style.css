@@ -1,85 +1,137 @@
-  :root {
-            --primary-color: #2e7d32;
-            --secondary-color: #4caf50;
+    /* ─── CSS Variables ─── */
+        :root {
             --sidebar-width: 250px;
+            --sidebar-collapsed: 70px;
+            --green-dark: #2e7d32;
+            --green-mid:  #4caf50;
         }
-        
+
+        /* ─── Body ─── */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
+            background-color: #f0f2f5;
+            overflow-x: hidden;
         }
-        
+
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+           SIDEBAR
+           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
         .sidebar {
             width: var(--sidebar-width);
-            height: 100vh;
-            background-color: var(--primary-color);
-            color: white;
+            min-height: 100vh;
+            background: linear-gradient(180deg, #1b5e20 0%, var(--green-dark) 100%);
             position: fixed;
-            left: 0;
             top: 0;
-            transition: all 0.3s;
-            z-index: 1000;
+            left: 0;
+            z-index: 1030;
+            transition: width 0.3s ease, left 0.3s ease;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
-        
-        .sidebar.collapsed {
-            width: 70px;
+        .sidebar.collapsed { width: var(--sidebar-collapsed); }
+
+        /* header row */
+        .sidebar .sidebar-header { flex-shrink: 0; }
+        .sidebar .sidebar-header h3 {
+            white-space: nowrap;
+            overflow: hidden;
+            transition: opacity 0.25s;
         }
-        
-        .sidebar.collapsed .nav-link span {
+        .sidebar.collapsed .sidebar-header h3 { opacity: 0; width: 0; }
+        .sidebar.collapsed .sidebar-header .toggle-btn { margin: 0 auto; }
+
+        /* user profile */
+        .sidebar .user-profile { flex-shrink: 0; }
+        .sidebar .user-profile img { width: 5rem; transition: width 0.3s; }
+        .sidebar.collapsed .user-profile img { width: 2.8rem; }
+        .sidebar .user-profile .user-info { transition: opacity 0.25s; }
+        .sidebar.collapsed .user-profile .user-info { opacity: 0; height: 0; overflow: hidden; margin: 0 !important; }
+
+        /* nav links */
+        .sidebar .nav-link {
+            color: rgba(255,255,255,0.78) !important;
+            white-space: nowrap;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            transition: background 0.2s, color 0.2s;
+        }
+        .sidebar .nav-link:hover {
+            background: rgba(255,255,255,0.13) !important;
+            color: #fff !important;
+        }
+        .sidebar .nav-link.active {
+            background: rgba(255,255,255,0.2) !important;
+            color: #fff !important;
+            font-weight: 600;
+        }
+        .sidebar .nav-link i { color: #fff; width: 1rem; text-align: center; }
+        .sidebar .nav-link .link-text { transition: opacity 0.25s; }
+        .sidebar.collapsed .nav-link .link-text { opacity: 0; width: 0; overflow: hidden; }
+        .sidebar.collapsed .nav-link { justify-content: center !important; }
+        .sidebar.collapsed .nav-link i { margin-right: 0 !important; }
+
+        /* ─── sidebar backdrop (mobile) ─── */
+        .sidebar-backdrop {
             display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+            z-index: 1029;
         }
-        
-        .sidebar.collapsed .sidebar-header h3 {
-            display: none;
-        }
-        
-        .sidebar.collapsed .sidebar-header .toggle-btn {
-            margin: 0 auto;
-        }
-        
+        .sidebar-backdrop.show { display: block; }
+
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+           MAIN CONTENT WRAPPER
+           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
         .main-content {
             margin-left: var(--sidebar-width);
-            transition: all 0.3s;
+            transition: margin-left 0.3s ease;
+            min-height: 100vh;
         }
-        
-        .main-content.expanded {
-            margin-left: 70px;
-        }
-        
+        .main-content.expanded { margin-left: var(--sidebar-collapsed); }
+
+        /* ─── mobile menu button ─── */
+        .mobile-menu-btn { display: none; }
+
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+           STAT CARDS
+           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
         .stat-card {
-            border-radius: 10px;
-            transition: transform 0.2s;
+            border-radius: 0.75rem !important;
+            border: none !important;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-        
         .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15) !important;
         }
-        
-        .crop-item {
-            border-left: 4px solid var(--secondary-color);
-        }
-        
+
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+           CHART CONTAINERS
+           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
         .chart-container {
             position: relative;
-            height: 300px;
+            height: 280px;
             width: 100%;
         }
-        
+
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+           CROPS TABLE
+           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        .crop-row { border-left: 4px solid var(--green-mid); }
+
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+           RESPONSIVE
+           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
         @media (max-width: 768px) {
-            .sidebar {
-                width: 70px;
-            }
-            
-            .sidebar .nav-link span {
-                display: none;
-            }
-            
-            .sidebar .sidebar-header h3 {
-                display: none;
-            }
-            
-            .main-content {
-                margin-left: 70px;
-            }
+            .sidebar { left: -100%; width: var(--sidebar-width); }
+            .sidebar.open { left: 0; }
+            .main-content { margin-left: 0 !important; }
+            .mobile-menu-btn { display: inline-flex; }
+        }
+        @media (max-width: 480px) {
+            .stat-card .card-title { font-size: 1.4rem !important; }
+            .stat-card i.fa-3x { font-size: 1.5rem !important; }
+            .logout-btn-text { display: none; }
         }
