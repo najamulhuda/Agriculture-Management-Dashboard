@@ -2,22 +2,9 @@
 
 A modern, responsive web application for managing agricultural operations, crops, and farm data. Built with vanilla JavaScript, Bootstrap 5, and Chart.js.
 
-![Dashboard Preview](https://najamulhuda.github.io/Agriculture-Management-Dashboard/)
+## Live Preview
+https://najamulhuda.github.io/Agriculture-Management-Dashboard/
 
-## 📋 Table of Contents
-
-- [Features](#features)
-- [Demo](#demo)
-- [Technologies Used](#technologies-used)
-- [Project Structure](#project-structure)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Features Overview](#features-overview)
-- [Screenshots](#screenshots)
-- [Browser Support](#browser-support)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
 
 ## ✨ Features
 
@@ -74,7 +61,7 @@ agriculture-dashboard/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/agriculture-dashboard.git
+   git clone https://github.com/najamulhuda/agriculture-dashboard.git
    ```
 
 2. **Navigate to the project directory**
